@@ -30,13 +30,13 @@
 - [x] Commit
 
 ## 05 Swiss (port 3005)
-- [ ] Strict 12-column grid, heavy name, numbered sections
-- [ ] Two flat colours + tinted black/white
-- [ ] Lazy WebGL dithered/displaced name shader with cursor + scroll
-- [ ] Static fallback when WebGL unavailable / reduced motion
-- [ ] Numbered work rows
+- [x] Strict 12-column grid, heavy name, numbered sections
+- [x] Two flat colours + tinted black/white
+- [x] Lazy WebGL dithered/displaced name shader with cursor + scroll
+- [x] Static fallback when WebGL unavailable / reduced motion
+- [x] Numbered work rows
 - [x] Typecheck / lint / build
-- [ ] Playwright: screenshots, canvas mount + fallback check, reduced motion
+- [x] Playwright: screenshots, canvas mount + fallback check, reduced motion
 - [x] Critique + fix pass
 - [x] Commit
 
@@ -46,10 +46,10 @@
 - [ ] help/ls/cd/cat/pwd/clear/whoami/git log/contact/skills/open/theme
 - [ ] Tab completion + arrow-key history
 - [ ] Plain view toggle with identical content
-- [x] Typecheck / lint / build
+- [ ] Typecheck / lint / build
 - [ ] Playwright: screenshots, `ls`, `cat`, reduced motion
-- [x] Critique + fix pass
-- [x] Commit
+- [ ] Critique + fix pass
+- [ ] Commit
 
 ## 04 Desktop (port 3004)
 - [ ] Original restrained window manager
@@ -57,10 +57,10 @@
 - [ ] Windows: About, Work, Experience, Skills, Contact, Terminal
 - [ ] Dock/taskbar, keyboard shortcuts, Cmd/Ctrl+K palette
 - [ ] Mobile stacked app list
-- [x] Typecheck / lint / build
+- [ ] Typecheck / lint / build
 - [ ] Playwright: screenshots, open + drag window, reduced motion
-- [x] Critique + fix pass
-- [x] Commit
+- [ ] Critique + fix pass
+- [ ] Commit
 
 ## Final QA
 - [ ] `npm run build:all`

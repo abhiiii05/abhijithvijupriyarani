@@ -21,8 +21,8 @@
 
 ## Typography (per direction)
 
-- 01 Index: **Fraunces** (variable display serif, `opsz`/`wght`) + **Space Grotesk**
-  and **IBM Plex Mono** for metadata.
+- 01 Index: **Fraunces** (variable display serif, `opsz`/`wght`) + **Karla** for
+  body and **IBM Plex Mono** for metadata.
 - 02 Console: **JetBrains Mono** (interface + terminal) + **Newsreader** (plain view
   headings).
 - 03 Blueprint: **Space Grotesk** (titles) + **IBM Plex Mono** (drawing annotations).
@@ -37,9 +37,9 @@ metric fallbacks to avoid layout shift.
 - GSAP + ScrollTrigger used in 01 and 03 only; Lenis in 01 only. Not installed in
   apps that do not use them.
 - Motion used for shared-element expansion (01) and window springs (04).
-- React Three Fiber / three / drei / postprocessing only in 05, dynamically imported
-  with `ssr: false` after first paint. 03 uses hand-written SVG (allowed by the
-  brief) rather than shipping a second WebGL stack.
+- React Three Fiber + three only in 05, dynamically imported with `ssr: false`
+  after first paint. No drei or postprocessing. 03 uses hand-written SVG (allowed
+  by the brief) rather than shipping a second WebGL stack.
 - Zustand only in 03 (simulation) and 04 (window manager).
 
 ## Palette
@@ -61,6 +61,19 @@ metric fallbacks to avoid layout shift.
   Playwright runner can own and stop the process cleanly on Windows.
 - **Mobile diagrams scroll horizontally with a visible "swipe to pan" hint.** The
   surrounding narrative carries the same information without scrolling.
+- **05 shader name is a generated CanvasTexture in a custom GLSL plane.** Archivo
+  900 is drawn into a transparent 2D canvas (matching the static fallback's
+  tracking), then sampled in a fragment shader with a 4×4 Bayer dither between ink
+  and vermilion. Fully transparent texture pixels are discarded, so the dither
+  cannot print a background field outside the glyphs.
+- **05 shader waits for first paint.** Two `requestAnimationFrame` ticks plus
+  `requestIdleCallback` mount the Canvas. The cursor ripple is multiplied by a
+  pointer-strength uniform that starts at zero, so the static composition is not
+  distorted before the visitor moves. Reduced motion, missing WebGL, an error
+  boundary and a lost context all fall back to the static Archivo setting.
+- **05 mobile name stays within the stage.** The fallback uses `min(12.1vw, 11.3rem)`
+  so "VIJU PRIYA" fits a 390px viewport; section headings stack and use
+  `11.5vw` to prevent the "Capabilities" heading from setting the document width.
 
 ## Verification
 
