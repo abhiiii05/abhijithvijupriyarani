@@ -20,12 +20,12 @@
 - [x] Commit
 
 ## 01 Index (port 3001)
-- [ ] Editorial type system, paper palette, hairline rules
-- [ ] Typographic table of contents (proof + projects)
-- [ ] Shared-element case-study expansion (Motion layoutId)
-- [ ] GSAP line reveals + scroll-velocity variable font response
+- [x] Editorial type system, paper palette, hairline rules
+- [x] Typographic table of contents (proof + projects)
+- [x] Shared-element case-study expansion (Motion layoutId)
+- [x] GSAP line reveals + scroll-velocity variable font response
 - [x] Typecheck / lint / build
-- [ ] Playwright: screenshots, expand row, reduced motion
+- [x] Playwright: screenshots, expand row, reduced motion
 - [x] Critique + fix pass
 - [x] Commit
 

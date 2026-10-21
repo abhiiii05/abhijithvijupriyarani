@@ -17,6 +17,36 @@ const apps = {
       await page.locator('[data-testid="case-study"]').waitFor({ state: "visible", timeout: 5000 });
       await page.waitForTimeout(700);
     },
+    extra: async (browser, outDir, assertClean) => {
+      const context = await browser.newContext({
+        viewport: { width: 390, height: 844 },
+        isMobile: true,
+        hasTouch: true,
+      });
+      const page = await context.newPage();
+      const errors = [];
+      bindErrors(page, "01-index-case-mobile", errors);
+      await page.goto("http://localhost:3001", { waitUntil: "networkidle" });
+      await page.locator('[data-testid="row-wipro"]').click();
+      await page.locator('[data-testid="case-study"]').waitFor({ state: "visible", timeout: 5000 });
+      await page.waitForTimeout(600);
+      const overflow = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+      if (overflow.scrollWidth > overflow.clientWidth + 2) {
+        errors.push(
+          `[01-index-case-mobile] horizontal overflow: ${overflow.scrollWidth} > ${overflow.clientWidth}`,
+        );
+      }
+      await page.screenshot({
+        path: path.join(outDir, "case-mobile.png"),
+        fullPage: false,
+        animations: "disabled",
+      });
+      await context.close();
+      assertClean(errors, "01-index (mobile case study)");
+    },
   },
   "02-console": {
     pkg: "@portfolio/02-console",
@@ -217,6 +247,11 @@ async function runApp(browser, key, app) {
     await page.screenshot({
       path: path.join(outDir, "interaction.png"),
       fullPage: true,
+      animations: "disabled",
+    });
+    await page.screenshot({
+      path: path.join(outDir, "interaction-viewport.png"),
+      fullPage: false,
       animations: "disabled",
     });
 
