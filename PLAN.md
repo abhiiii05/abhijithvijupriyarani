@@ -41,15 +41,15 @@
 - [x] Commit
 
 ## 02 Console (port 3002)
-- [ ] Warm charcoal + amber phosphor, CRT overlay (reduced-motion off)
-- [ ] Virtual filesystem command interpreter
-- [ ] help/ls/cd/cat/pwd/clear/whoami/git log/contact/skills/open/theme
-- [ ] Tab completion + arrow-key history
-- [ ] Plain view toggle with identical content
-- [ ] Typecheck / lint / build
-- [ ] Playwright: screenshots, `ls`, `cat`, reduced motion
-- [ ] Critique + fix pass
-- [ ] Commit
+- [x] Warm charcoal + amber phosphor, CRT overlay (reduced-motion off)
+- [x] Virtual filesystem command interpreter
+- [x] help/ls/cd/cat/pwd/clear/whoami/git log/contact/skills/open/theme
+- [x] Tab completion + arrow-key history
+- [x] Plain view toggle with identical content
+- [x] Typecheck / lint / build
+- [x] Playwright: screenshots, `ls`, `cat`, reduced motion
+- [x] Critique + fix pass
+- [x] Commit
 
 ## 04 Desktop (port 3004)
 - [ ] Original restrained window manager

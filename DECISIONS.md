@@ -71,6 +71,17 @@ metric fallbacks to avoid layout shift.
   pointer-strength uniform that starts at zero, so the static composition is not
   distorted before the visitor moves. Reduced motion, missing WebGL, an error
   boundary and a lost context all fall back to the static Archivo setting.
+- **02 Console has no terminal library.** `lib/shell.ts` is a hand-written command
+  interpreter over a small virtual filesystem (home, work, projects, record) with
+  path resolution, Tab completion and arrow-key history. The terminal renders as a
+  scrolling log with the prompt inside the log, so output reads top-down like a real
+  shell rather than a mock chat window.
+- **02 plain view is a full second layout, not a fallback.** Every record section is
+  typeset in Newsreader from the same content package; the toggle preserves the
+  current theme and is reachable from the top bar and the `plain` command.
+- **02 autofocus is limited to fine pointers.** The input takes focus on desktop so
+  the caret is visible, but not on touch devices, where autofocus would open the
+  keyboard over the boot output. All focus calls use `preventScroll`.
 - **05 mobile name stays within the stage.** The fallback uses `min(12.1vw, 11.3rem)`
   so "VIJU PRIYA" fits a 390px viewport; section headings stack and use
   `11.5vw` to prevent the "Capabilities" heading from setting the document width.
