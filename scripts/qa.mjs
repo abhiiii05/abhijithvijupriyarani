@@ -151,6 +151,33 @@ const apps = {
       assertClean(errors, "05-swiss (WebGL disabled)");
     },
   },
+  "06-swissdesk": {
+    pkg: "@portfolio/06-swissdesk",
+    port: 3006,
+    interaction: async (page) => {
+      const win = page.locator('[data-testid="window-work"]');
+      await win.waitFor({ state: "visible", timeout: 8000 });
+      const handle = page.locator('[data-testid="window-work-handle"]');
+      const before = await win.boundingBox();
+      const box = await handle.boundingBox();
+      if (!before || !box) throw new Error("Could not measure the Work window");
+      await page.mouse.move(box.x + box.width / 2, box.y + 14);
+      await page.mouse.down();
+      await page.mouse.move(box.x + box.width / 2 + 110, box.y + 14 + 80, { steps: 12 });
+      await page.mouse.up();
+      await page.waitForTimeout(600);
+      const after = await win.boundingBox();
+      if (!after || Math.abs(after.x - before.x) < 40) {
+        throw new Error("Work window did not move after drag");
+      }
+      await page.locator('[data-testid="app-projects"]').click();
+      await page.locator('[data-testid="window-projects"]').waitFor({
+        state: "visible",
+        timeout: 5000,
+      });
+      await page.waitForTimeout(500);
+    },
+  },
 };
 
 function bindErrors(page, label, errors) {

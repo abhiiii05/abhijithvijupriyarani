@@ -2,10 +2,10 @@
 
 ## Project goal
 
-Five complete, production-quality portfolio websites for Abhijith Viju Priya Rani,
+Six complete, production-quality portfolio websites for Abhijith Viju Priya Rani,
 built as one npm-workspaces monorepo. Every direction is an independent Next.js App
 Router project with its own layout, typography, colour, motion and interaction. All
-five import the same typed content package. The sites are meant to be evaluated by
+six import the same typed content package. The sites are meant to be evaluated by
 backend-engineering recruiters and freelance clients.
 
 ## Repo layout
@@ -22,6 +22,7 @@ backend-engineering recruiters and freelance clients.
 /apps/03-blueprint/      interactive system diagrams          port 3003
 /apps/04-desktop/        original window-manager desktop      port 3004
 /apps/05-swiss/          12-column Swiss grid + WebGL shader  port 3005
+/apps/06-swissdesk/      Swiss type + desktop window manager  port 3006
 /scripts/qa.mjs          Playwright screenshots + interactions
 /qa/<app>/               generated QA artifacts (gitignored)
 ```
@@ -41,6 +42,7 @@ npm run dev:2               # 02-console http://localhost:3002
 npm run dev:3               # 03-blueprint
 npm run dev:4               # 04-desktop
 npm run dev:5               # 05-swiss
+npm run dev:6               # 06-swissdesk
 npm run build:all           # build every app (and content typecheck)
 npm run typecheck:all       # tsc --noEmit in every workspace
 npm run lint:all            # eslint in every app

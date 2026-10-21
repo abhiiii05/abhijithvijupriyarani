@@ -2,7 +2,7 @@
   "name": "abhijith-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Five independent portfolio directions for Abhijith Viju Priya Rani.",
+  "description": "Six independent portfolio directions for Abhijith Viju Priya Rani.",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -13,6 +13,7 @@
     "dev:3": "npm run dev -w @portfolio/03-blueprint",
     "dev:4": "npm run dev -w @portfolio/04-desktop",
     "dev:5": "npm run dev -w @portfolio/05-swiss",
+    "dev:6": "npm run dev -w @portfolio/06-swissdesk",
     "build:all": "npm run typecheck -w @portfolio/content && npm run build --workspaces --if-present",
     "typecheck:all": "npm run typecheck --workspaces --if-present",
     "lint:all": "npm run lint --workspaces --if-present",

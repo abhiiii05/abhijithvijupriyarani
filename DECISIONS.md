@@ -28,6 +28,8 @@
 - 03 Blueprint: **Space Grotesk** (titles) + **IBM Plex Mono** (drawing annotations).
 - 04 Desktop: **Instrument Sans** (UI) + **DM Mono** (terminal/status).
 - 05 Swiss: **Archivo** (variable, heavy widths) + **Spline Sans Mono** (metadata).
+- 06 Swissdesk: the same **Archivo** + **Spline Sans Mono** as 05. The point of the
+  hybrid is that the palette and type survive the move into a window manager.
 
 All loaded with `next/font/google`, variable where available, `display: swap`, and
 metric fallbacks to avoid layout shift.
@@ -37,15 +39,17 @@ metric fallbacks to avoid layout shift.
 - GSAP + ScrollTrigger used in 01 and 03 only; Lenis in 01 only. Not installed in
   apps that do not use them.
 - Motion used for shared-element expansion (01) and window springs (04).
-- React Three Fiber + three only in 05, dynamically imported with `ssr: false`
+- React Three Fiber + three in 05 and 06, dynamically imported with `ssr: false`
   after first paint. No drei or postprocessing. 03 uses hand-written SVG (allowed
   by the brief) rather than shipping a second WebGL stack.
-- Zustand only in 03 (simulation) and 04 (window manager).
+- Zustand in 03 (simulation), 04 and 06 (window managers).
 
 ## Palette
 
 - 02 Console is the single dark direction (warm charcoal, amber phosphor).
-- 01, 03, 04, 05 are light/tinted. No pure #000/#fff as surface colours.
+- 01, 03, 04, 05, 06 are light/tinted. No pure #000/#fff as surface colours.
+- 06 reuses the 05 palette exactly: `#f1efe7` paper, `#171816` ink, `#c6c3b5`
+  rules and `#e13b1f` vermilion. It does not introduce a second accent.
 
 ## Toolchain deviations
 
@@ -113,8 +117,36 @@ metric fallbacks to avoid layout shift.
   when the palette is not open. There is no separate menu bar, which keeps the
   desktop from turning into a mock OS.
 
+- **06 is a deliberate hybrid, not a sixth theme.** It takes the 05 palette,
+  Archivo/Spline pairing, 12-column stage and dithered name, then applies the 04
+  window manager. The contrast between the oversized type on the wall and the paper
+  windows in front of it is the idea; neither direction alone produces it.
+- **06 promotes the app launcher to the primary top band and drops the taskbar.**
+  Six heavy numbered buttons show open state with an ink fill and a 4px vermilion
+  top rule. A bottom taskbar plus a top launcher would duplicate the same affordance
+  and make the page read as an OS imitation rather than a portfolio.
+- **06 focus is drawn, not glowed.** The focused window switches to an ink titlebar
+  and a hard vermilion offset shadow; unfocused windows keep a neutral ink shadow.
+  Only one window can carry it, so stacking order is legible at a glance.
+- **06 switches to the mobile layout at 1081px, not 04's 900px.** Between roughly
+  900 and 1080px the name and a 600px window overlap in a way that hides both. The
+  mobile stacked sheets are the honest fallback at that width.
+- **06 opens with only Work on screen.** The strongest proof is in front, the name
+  stays legible behind it, and the remaining apps are one launcher click away.
+  Opening everything would reproduce the clutter 04 already rejected.
+- **06 removes repeated copy rather than filling space.** Availability appears once
+  in the masthead, role words once in the wall kicker, and the hero tagline and
+  metrics are gone because Work already states them. Each responsive layout has one
+  footer. The wall foot carries only the interaction hint and the 01–06 index.
+- **06 clamps windows with a 16px margin.** Drag, resize and store clamping all leave
+  room for the vermilion offset shadow; at the earlier 10px edge the shadow was
+  clipped by the stage. Window state stays local and intentionally does not persist.
+- **06 reuses the 05 shader implementation.** `NameStage`/`ShaderName` are copied with
+  the same lazy mount, Bayer dither and static fallback, so the hybrid keeps the 05
+  signature without introducing a second rendering approach.
+
 ## Verification
 
 - Playwright 1.64.1 + Chromium installed locally for QA. Screenshots and console /
   network assertions are produced by `scripts/qa.mjs`.
-- QA runs against production servers (`next start`) on ports 3001–3005.
+- QA runs against production servers (`next start`) on ports 3001–3006.

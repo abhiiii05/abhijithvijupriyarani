@@ -62,6 +62,18 @@
 - [x] Critique + fix pass
 - [x] Commit
 
+## 06 Swissdesk (port 3006)
+- [x] Hybrid: 05 palette, Archivo/Spline and 12-column stage + 04 window manager
+- [x] Prominent top app launcher replaces the taskbar; open apps get ink fill and vermilion rule
+- [x] Dithered WebGL name wallpaper with static fallback
+- [x] Drag, resize, focus stacking, `Alt+1`–`6`, Cmd/Ctrl+K palette, Esc focus return
+- [x] De-duplicated copy: availability once, role once, no hero metrics, one footer per layout
+- [x] Mobile stacked sheets and 2×3 app launcher below 1081px
+- [x] Typecheck / lint / build
+- [x] Playwright: screenshots, drag Work then open Projects, focus check, reduced motion
+- [x] Critique + fix pass
+- [x] Commit
+
 ## Final QA
 - [x] `npm run build:all`
 - [x] `npm run typecheck:all`

@@ -1,8 +1,8 @@
 # Portfolio directions
 
-Five complete portfolio sites for Abhijith Viju Priya Rani, built as one
+Six complete portfolio sites for Abhijith Viju Priya Rani, built as one
 npm-workspaces monorepo. Each app is an independent Next.js App Router project with
-its own layout, type, colour, motion and interaction model. All five read the same
+its own layout, type, colour, motion and interaction model. All six read the same
 typed content package.
 
 ## Run
@@ -16,6 +16,7 @@ npm run dev:2   # http://localhost:3002  02 Console
 npm run dev:3   # http://localhost:3003  03 Blueprint
 npm run dev:4   # http://localhost:3004  04 Desktop
 npm run dev:5   # http://localhost:3005  05 Swiss
+npm run dev:6   # http://localhost:3006  06 Swissdesk
 ```
 
 Build and verify:
@@ -33,7 +34,7 @@ overflow at 1440 and 390, captures desktop, mobile and reduced-motion screenshot
 and exercises the per-direction interaction (expand a case study, run shell commands,
 kill a worker, drag a window, fall back without WebGL).
 
-## The five directions
+## The six directions
 
 | # | Direction | Concept | Signature detail | Port |
 | - | --------- | ------- | ---------------- | ---- |
@@ -42,6 +43,7 @@ kill a worker, drag a window, fall back without WebGL).
 | 03 | Blueprint | Engineering drawing of the work and the systems behind it | File Processing System diagram with live job particles; kill a worker and watch retries | 3003 |
 | 04 | Desktop | Restrained window manager, one window open on load | Draggable, resizable paper windows with a Cmd/Ctrl+K palette | 3004 |
 | 05 | Swiss | Strict 12-column grid, heavy Archivo, two flat colours | Dithered WebGL name shader with cursor and scroll displacement, plus static fallback | 3005 |
+| 06 | Swissdesk | 05's Swiss system applied to 04's window manager | Full-width numbered app launcher; focused windows carry a hard vermilion offset shadow | 3006 |
 
 Content order is identical everywhere: Wipro migration, Vasco Foods production
 backend, Solarium contract, then projects, skills, achievements, leadership and
@@ -61,6 +63,10 @@ testimonials or photos.
   expanding case studies keep the strongest proof above the fold.
 - 04 Desktop and 05 Swiss are the two most visual directions. 04 is playful but still
   readable; 05 is the most graphic and works best as a design-forward calling card.
+- **06 Swissdesk is the combined option.** It keeps 05's palette, Archivo setting and
+  dithered name, then puts the record in 04's draggable windows under a permanent
+  six-app launcher. Use it when you want the Swiss visual identity without giving up
+  the window interaction.
 
 ## Layout
 
@@ -70,6 +76,7 @@ apps/02-console/    shell / command line      port 3002
 apps/03-blueprint/  interactive diagrams      port 3003
 apps/04-desktop/    window manager            port 3004
 apps/05-swiss/      grid + WebGL name         port 3005
+apps/06-swissdesk/  Swiss + window manager    port 3006
 packages/content/   typed content, single source of copy
 scripts/qa.mjs      Playwright QA runner
 qa/<app>/           generated screenshots and logs (gitignored)
