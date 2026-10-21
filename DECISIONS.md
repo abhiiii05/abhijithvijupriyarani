@@ -85,6 +85,33 @@ metric fallbacks to avoid layout shift.
 - **05 mobile name stays within the stage.** The fallback uses `min(12.1vw, 11.3rem)`
   so "VIJU PRIYA" fits a 390px viewport; section headings stack and use
   `11.5vw` to prevent the "Capabilities" heading from setting the document width.
+- **04 window state lives in one Zustand store.** `lib/desktop-store.ts` owns pane
+  metadata, window rectangles, stacking order and open/minimised state. Panes are
+  rendered by id from that store, so the taskbar, palette, shortcuts and drag logic
+  all read the same source. Rectangles are clamped to the stage on open, drag, resize
+  and stage resize (`ResizeObserver`), so a window can never be lost off-screen.
+- **04 opens with one window, not a scattered desktop.** Only Work is open on load:
+  the strongest proof sits in front, and the wallpaper (name, role, availability)
+  stays legible behind it. Opening everything at once reads as clutter and hides the
+  type composition.
+- **04 uses hard-offset shadows, not blur.** Paper windows cast a flat two-layer
+  offset shadow on the tinted desk. Combined with a single ultramarine accent and ink
+  titlebars on the focused window, depth comes from drawing, not glass or glow.
+- **04 drag and resize use pointer capture.** Dragging the titlebar or the bottom-right
+  handle calls `setPointerCapture`, so the gesture survives fast movement outside the
+  window. Keyboard users get the taskbar and `Alt+1`–`6`; the palette traps Tab and
+  returns focus to its opener on close.
+- **04 mobile is a stacked sheet list, not tiny windows.** Below 900px the desktop and
+  taskbar are removed and the same panes render as full-width sheets under a sticky
+  3×2 section nav. Shrinking floating windows to phone width would make the record
+  unreadable.
+- **04 motion is limited to window open/close and focus.** Motion springs run through
+  `MotionConfig reducedMotion="user"`; with reduced motion the windows appear without
+  travel. Palette and hover transitions stay under 200ms.
+- **04 palette is the only command surface.** `Cmd/Ctrl+K` opens it, arrow keys and
+  Enter select, `Alt+1`–`6` open panes directly, and `Escape` closes the top window
+  when the palette is not open. There is no separate menu bar, which keeps the
+  desktop from turning into a mock OS.
 
 ## Verification
 

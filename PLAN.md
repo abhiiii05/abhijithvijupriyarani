@@ -1,12 +1,12 @@
-# PLAN
+﻿# PLAN
 
 ## Shared setup
-- [ ] Root npm workspaces + pinned dependency versions
-- [ ] Shared tsconfig, .gitignore, git repo
-- [ ] AGENTS.md / PLAN.md / DECISIONS.md
-- [ ] `packages/content` typed content, exact copy only
-- [ ] `scripts/qa.mjs` (Playwright + chromium)
-- [ ] Verify install, typecheck, lint baseline
+- [x] Root npm workspaces + pinned dependency versions
+- [x] Shared tsconfig, .gitignore, git repo
+- [x] AGENTS.md / PLAN.md / DECISIONS.md
+- [x] `packages/content` typed content, exact copy only
+- [x] `scripts/qa.mjs` (Playwright + chromium)
+- [x] Verify install, typecheck, lint baseline
 
 ## 03 Blueprint (port 3003)
 - [x] Engineering-drawing shell, grid paper, title blocks
@@ -52,15 +52,15 @@
 - [x] Commit
 
 ## 04 Desktop (port 3004)
-- [ ] Original restrained window manager
-- [ ] Drag, resize, focus stacking, spring physics
-- [ ] Windows: About, Work, Experience, Skills, Contact, Terminal
-- [ ] Dock/taskbar, keyboard shortcuts, Cmd/Ctrl+K palette
-- [ ] Mobile stacked app list
-- [ ] Typecheck / lint / build
-- [ ] Playwright: screenshots, open + drag window, reduced motion
-- [ ] Critique + fix pass
-- [ ] Commit
+- [x] Original restrained window manager
+- [x] Drag, resize, focus stacking, spring physics
+- [x] Windows: Work, Projects, Experience, Skills, Record, Contact
+- [x] Taskbar, keyboard shortcuts, Cmd/Ctrl+K palette
+- [x] Mobile stacked sheets with sticky section nav
+- [x] Typecheck / lint / build
+- [x] Playwright: screenshots, open + drag window, reduced motion
+- [x] Critique + fix pass
+- [x] Commit
 
 ## Final QA
 - [ ] `npm run build:all`
