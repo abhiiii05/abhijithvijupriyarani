@@ -63,9 +63,9 @@
 - [x] Commit
 
 ## Final QA
-- [ ] `npm run build:all`
-- [ ] `npm run typecheck:all`
-- [ ] `npm run lint:all`
-- [ ] `npm run qa` all directions
-- [ ] README with run instructions, comparison table, recommendation
-- [ ] Final commit
+- [x] `npm run build:all`
+- [x] `npm run typecheck:all`
+- [x] `npm run lint:all`
+- [x] `npm run qa` all directions
+- [x] README with run instructions, comparison table, recommendation
+- [x] Final commit
