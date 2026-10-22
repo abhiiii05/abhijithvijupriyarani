@@ -41,7 +41,6 @@ export function DesktopWindow({ id, boundsRef, children }: WindowProps) {
   const win = useDesktop((state) => state.windows[id]);
   const focused = useDesktop((state) => state.topZ === state.windows[id].z);
   const closePane = useDesktop((state) => state.closePane);
-  const minimizePane = useDesktop((state) => state.minimizePane);
   const focusPane = useDesktop((state) => state.focusPane);
   const movePane = useDesktop((state) => state.movePane);
   const resizePane = useDesktop((state) => state.resizePane);
@@ -178,22 +177,19 @@ export function DesktopWindow({ id, boundsRef, children }: WindowProps) {
           <button
             type="button"
             className="win-btn"
-            aria-label={`Minimise ${meta.name}`}
-            title="Minimise"
-            onPointerDown={(event) => event.stopPropagation()}
-            onClick={() => minimizePane(id)}
-          >
-            â€“
-          </button>
-          <button
-            type="button"
-            className="win-btn"
             aria-label={`Close ${meta.name}`}
             title="Close"
             onPointerDown={(event) => event.stopPropagation()}
             onClick={() => closePane(id)}
           >
-            Ã—
+            <svg viewBox="0 0 10 10" width="10" height="10" aria-hidden="true">
+              <path
+                d="M1.5 1.5 8.5 8.5M8.5 1.5 1.5 8.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
+            </svg>
           </button>
         </div>
       </div>

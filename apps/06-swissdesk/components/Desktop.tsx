@@ -142,7 +142,7 @@ export function Desktop() {
           <ul className="launch-list">
             {paneIds.map((id) => {
               const entry = windows[id];
-              const isOpen = entry.open && !entry.minimized;
+              const isOpen = entry.open;
 
               return (
                 <li key={id}>

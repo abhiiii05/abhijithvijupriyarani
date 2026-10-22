@@ -1,4 +1,9 @@
 import { content } from "@portfolio/content";
+import { RichText } from "./RichText";
+
+function workTitle(title: string) {
+  return title.replace(/\s*\u2014\s*/g, ": ");
+}
 
 export function WorkPane() {
   return (
@@ -16,7 +21,7 @@ export function WorkPane() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div className="entry-head">
-                <h3>{entry.title}</h3>
+                <h3>{workTitle(entry.title)}</h3>
                 <p className="entry-meta">
                   {entry.role} / {entry.kind}
                 </p>
@@ -24,8 +29,12 @@ export function WorkPane() {
               <span className="entry-period">{entry.period}</span>
             </div>
 
-            <p className="entry-outcome">{entry.outcome}</p>
-            <p className="entry-copy">{entry.summary}</p>
+            <p className="entry-outcome">
+              <RichText text={entry.outcome} />
+            </p>
+            <p className="entry-copy">
+              <RichText text={entry.summary} />
+            </p>
 
             {entry.metrics.length > 0 ? (
               <dl className="metrics">
@@ -67,8 +76,12 @@ export function ProjectsPane() {
               </div>
             </div>
 
-            <p className="entry-outcome">{entry.outcome}</p>
-            <p className="entry-copy">{entry.summary}</p>
+            <p className="entry-outcome">
+              <RichText text={entry.outcome} />
+            </p>
+            <p className="entry-copy">
+              <RichText text={entry.summary} />
+            </p>
 
             {entry.metrics.length > 0 ? (
               <dl className="metrics">
@@ -114,11 +127,15 @@ export function ExperiencePane() {
             </div>
 
             <p className="entry-location">{entry.location}</p>
-            <p className="entry-copy">{entry.summary}</p>
+            <p className="entry-copy">
+              <RichText text={entry.summary} />
+            </p>
 
             <ul className="bullets">
               {entry.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+                <li key={bullet}>
+                  <RichText text={bullet} />
+                </li>
               ))}
             </ul>
           </article>
@@ -187,7 +204,9 @@ export function RecordPane() {
                 {role.year} / {role.organisation}
               </p>
               <h4>{role.role}</h4>
-              <p>{role.detail}</p>
+              <p>
+                <RichText text={role.detail} />
+              </p>
             </article>
           ))}
         </div>

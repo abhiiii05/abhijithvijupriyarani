@@ -66,7 +66,6 @@ export const panes: Record<PaneId, PaneMeta> = {
 
 export type DesktopWindow = {
   open: boolean;
-  minimized: boolean;
   x: number;
   y: number;
   w: number;
@@ -79,7 +78,6 @@ type DesktopStore = {
   topZ: number;
   openPane: (id: PaneId) => void;
   closePane: (id: PaneId) => void;
-  minimizePane: (id: PaneId) => void;
   focusPane: (id: PaneId) => void;
   movePane: (id: PaneId, x: number, y: number) => void;
   resizePane: (id: PaneId, w: number, h: number) => void;
@@ -94,7 +92,6 @@ function initialWindows(): Record<PaneId, DesktopWindow> {
     windows[id] = {
       ...panes[id].rect,
       open: id === "work",
-      minimized: false,
       z: id === "work" ? 2 : 1,
     };
   }
@@ -118,7 +115,6 @@ export const useDesktop = create<DesktopStore>((set) => ({
         [id]: {
           ...state.windows[id],
           open: true,
-          minimized: false,
           z: state.topZ + 1,
         },
       },
@@ -128,15 +124,7 @@ export const useDesktop = create<DesktopStore>((set) => ({
     set((state) => ({
       windows: {
         ...state.windows,
-        [id]: { ...state.windows[id], open: false, minimized: false },
-      },
-    })),
-
-  minimizePane: (id) =>
-    set((state) => ({
-      windows: {
-        ...state.windows,
-        [id]: { ...state.windows[id], minimized: true },
+        [id]: { ...state.windows[id], open: false },
       },
     })),
 
@@ -144,7 +132,7 @@ export const useDesktop = create<DesktopStore>((set) => ({
     set((state) => {
       const current = state.windows[id];
 
-      if (!current.open || current.minimized) return state;
+      if (!current.open) return state;
       if (current.z === state.topZ) return state;
 
       return {
@@ -180,7 +168,6 @@ export const useDesktop = create<DesktopStore>((set) => ({
         windows[id] = {
           ...state.windows[id],
           open: false,
-          minimized: false,
         };
       }
 
@@ -212,10 +199,7 @@ export const useDesktop = create<DesktopStore>((set) => ({
 }));
 
 export function openWindows(state: { windows: Record<PaneId, DesktopWindow> }) {
-  return paneIds.filter((id) => {
-    const entry = state.windows[id];
-    return entry.open && !entry.minimized;
-  });
+  return paneIds.filter((id) => state.windows[id].open);
 }
 
 

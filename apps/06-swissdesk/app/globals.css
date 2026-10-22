@@ -606,9 +606,11 @@ input {
   padding: 0;
   border: 1px solid var(--rule);
   background: transparent;
-  font-size: 13px;
-  line-height: 1;
   cursor: pointer;
+}
+
+.win-btn svg {
+  display: block;
 }
 
 .win-btn:hover {
@@ -765,6 +767,14 @@ input {
   font-size: 13px;
   line-height: 1.52;
   color: var(--ink-soft);
+}
+
+.entry-outcome strong,
+.entry-copy strong,
+.bullets strong,
+.lead-list p strong {
+  font-weight: 800;
+  color: var(--ink);
 }
 
 .metrics {
@@ -1348,8 +1358,9 @@ input {
   grid-template-columns: auto minmax(0, 1fr) auto;
   column-gap: 8px;
   align-items: baseline;
-  padding: 11px var(--gutter);
-  border-bottom: 1px solid var(--ink);
+  padding: 12px var(--gutter);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .m-number {
@@ -1372,11 +1383,24 @@ input {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: right;
-  color: var(--ink-soft);
+  color: rgba(241, 239, 231, 0.62);
 }
 
 .m-body {
-  padding: 14px var(--gutter) 22px;
+  padding: 16px var(--gutter) 26px;
+}
+
+.m-body .entry,
+.m-body .entry:first-child,
+.m-body .entry:last-child {
+  padding: 14px 13px 16px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink);
+  background: #f8f6ee;
+}
+
+.m-body .entry + .entry {
+  margin-top: 12px;
 }
 
 .m-body .entry-top {
