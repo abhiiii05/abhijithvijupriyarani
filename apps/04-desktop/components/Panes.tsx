@@ -95,7 +95,7 @@ export function ExperiencePane() {
       <div className="pane-intro">
         <p className="pane-kicker">Roles / 2026</p>
         <p className="pane-lead">
-          Two roles: one studio he co-founded, one migration inside Wipro.
+          Two roles: one studio co-founded with a partner, one migration inside Wipro.
         </p>
       </div>
 

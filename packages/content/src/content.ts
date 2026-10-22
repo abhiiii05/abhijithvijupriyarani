@@ -142,7 +142,7 @@ export const content: Content = {
       outcome:
         "Live at vascofoods.in with Razorpay payments and Shiprocket courier logistics.",
       summary:
-        "Built through PiixelTheory, the freelance web studio he co-founded. He owns backend architecture and integrations; his partner leads frontend and design.",
+        "Built through PiixelTheory, a freelance web studio co-founded with a partner. Own backend architecture and integrations; the partner leads frontend and design.",
       bullets: [
         "Built the production e-commerce backend for Vasco Foods (vascofoods.in) with Razorpay payments and Shiprocket courier logistics.",
       ],
@@ -176,7 +176,7 @@ export const content: Content = {
       location: "Remote",
       period: "Jun 2026 – Present",
       summary:
-        "Freelance web studio. He owns backend architecture and integrations; his partner leads frontend and design.",
+        "Freelance web studio. Own backend architecture and integrations; a partner leads frontend and design.",
       bullets: [
         "Built the production e-commerce backend for Vasco Foods (vascofoods.in) with Razorpay payments and Shiprocket courier logistics.",
         "Signed Solarium Green Energy, a BSE-listed solar EPC firm, on a multi-year contract: full website rebuild plus a new e-commerce vertical for solar panel sales.",
@@ -329,7 +329,7 @@ export const content: Content = {
     projectsLead:
       "Three builds that show the systems behind the work: queues, an agent loop, and on-chain verification.",
     aboutLead:
-      "Computer science at IIIT Vadodara, backend work in production, and a studio he co-founded.",
+      "Computer science at IIIT Vadodara, backend work in production, and a studio co-founded with a partner.",
     contactLead:
       "Available for backend engineering roles and freelance backend work.",
     footerNote: "How this was built",
